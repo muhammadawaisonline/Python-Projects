@@ -64,9 +64,3 @@ def to_do_list_application():
         else:
             print("Invalid Choice: Please Choose a valid Number (1-4): ")
 to_do_list_application()
-
-
-
-
-
-

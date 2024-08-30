@@ -60,4 +60,3 @@ def to_do_list_app():
 
 if __name__ == "__main__":
     to_do_list_app()
-
