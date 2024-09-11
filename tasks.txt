@@ -1,1 +1,4 @@
-Calculator: [incompleted]Wheather App: [incompleted]
+Calculator: complete
+calcultor: complete
+Calculator: complete
+5Th To do App: complete
