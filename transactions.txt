@@ -1,0 +1,4 @@
+Salary: 35000.0
+Shopping: -10000.0
+Utillity Bill: -10000.0
+Family Support: -15000.0

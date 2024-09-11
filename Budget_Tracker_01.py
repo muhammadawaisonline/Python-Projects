@@ -9,7 +9,7 @@ def load_transactions():
     if os.path.exists(TRANSACTIONS_FILE):
         with open(TRANSACTIONS_FILE, 'r') as file:
             for line in file:
-                description, amount = line.strip().split(':')
+                description, amount = line.strip().rsplit(':', 1)
                 transactions.append((description, float(amount)))
     return transactions
 
