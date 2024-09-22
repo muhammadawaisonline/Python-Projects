@@ -1,5 +1,4 @@
 import json
-
 INVENTORY_FILE = 'inventory.json'
 
 # Load inventory from file
