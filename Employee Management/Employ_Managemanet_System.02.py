@@ -1,6 +1,6 @@
 import re  # For regular expressions
-
 # Base class for employees
+
 class Employee:
     total_employees = 0
     employee_list = []
