@@ -67,3 +67,16 @@ def save_accounts(accounts):
         } for acc_num, acc in accounts.items()}
         json.dump(accounts_data, file)
 
+# Function to create a new account
+def create_account(accounts):
+    account_number = input("Enter account number: ").strip()
+    name = input("Enter account holder's name: ").strip()
+    
+    if account_number in accounts:
+        print("Account with this number already exists.")
+    else:
+        account = BankAccount(account_number, name)
+        accounts[account_number] = account
+        print(f"Account created for {name} with account number {account_number}.")
+        save_accounts(accounts)
+
