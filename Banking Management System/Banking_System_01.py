@@ -80,3 +80,46 @@ def create_account(accounts):
         print(f"Account created for {name} with account number {account_number}.")
         save_accounts(accounts)
 
+# Main function for the Banking System
+def banking_system():
+    accounts = load_accounts()  # Load existing accounts from file
+
+    while True:
+        print("\nBanking System Menu:")
+        print("1. Create a new account")
+        print("2. View balance")
+        print("3. Deposit money")
+        print("4. Withdraw money")
+        print("5. View transaction history")
+        print("6. Exit")
+
+        choice = input("Choose an option (1-6): ").strip()
+
+        if choice == '1':
+            create_account(accounts)
+        elif choice in ['2', '3', '4', '5']:
+            account_number = input("Enter your account number: ").strip()
+            if account_number in accounts:
+                account = accounts[account_number]
+                if choice == '2':
+                    account.view_balance()
+                elif choice == '3':
+                    amount = float(input("Enter amount to deposit: "))
+                    account.deposit(amount)
+                    save_accounts(accounts)
+                elif choice == '4':
+                    amount = float(input("Enter amount to withdraw: "))
+                    account.withdraw(amount)
+                    save_accounts(accounts)
+                elif choice == '5':
+                    account.view_transactions()
+            else:
+                print("Account not found.")
+        elif choice == '6':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+# Run the Banking System application
+banking_system()
