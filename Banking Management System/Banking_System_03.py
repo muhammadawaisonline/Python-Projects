@@ -72,3 +72,45 @@ def create_accoount(accounts):
         save_account(accounts)
     
 
+# Fuction for Banking System
+def banking_system():
+    accounts = load_accounts()
+    while True:
+        print("\nYour Bank Account")
+        print("\nSelect one Option")
+        print("1. Create Account")
+        print("2. View Balance")
+        print("3. Deposit Amount")
+        print("4. Cash Withdraw")
+        print("5. View Transactional History")
+        print("6. Exit")
+        try:
+            choice = input("Select on Option (1-6): ").strip()
+        except ValueError:
+            print("🙏Please Select a Number from (1-6)!🙏")
+
+        if choice == "1":
+            create_accoount(accounts)
+        elif choice in ["2", "3", "4", "5"]:
+            account_number = input("Enter Your Account Number: ")
+            if account_number in accounts:
+                account = accounts[account_number]
+                if choice == "2":
+                    account.view_balance()
+                elif choice == "3":
+                    amount = float(input("Enter Your Deposit amount: "))
+                    account.deposit(amount)
+                    save_account(accounts)
+                elif choice == "4":
+                    amount = float(input("Enter Your Withdrwal Amount: "))
+                    account.withdraw(amount)
+                    save_account(accounts)
+                elif choice == "5":
+                    account.transactions_history()
+            elif choice == "6":
+                print("👋 Goodbye. 👋")
+        else:
+            print("⚠️Invalid Choice!⚠️")
+
+if __name__ == "__main__":
+    banking_system()
